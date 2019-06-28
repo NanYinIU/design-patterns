@@ -1,0 +1,27 @@
+@startuml
+interface MyString{
++ create():void
+}
+
+class StringIns1{
+- innerState:String
++ StringIns1(innerState)
++ create():void
+}
+
+class StringIns2{
+- innerState:String
++ StringIns2(innerState)
++ create():void
+}
+
+class FlyWeight{
+- store:Map<InstanceType,MyString>
++ factory():MyString
+}
+
+MyString <|.. StringIns1
+MyString <|.. StringIns2
+
+FlyWeight o-- MyString
+@enduml

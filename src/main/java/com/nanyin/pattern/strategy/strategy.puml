@@ -1,0 +1,26 @@
+@startuml
+interface TrafficStrategy{
+    + go() : void
+}
+
+class CarStrategy{
+    __public__
+    + go() : void
+}
+
+class WalkStrategy{
+    __public__
+    + go() : void
+}
+
+class Context{
+    __private__
+    trafficStrategy : TrafficStrategy
+    __public__
+    doStrategy() : void
+}
+
+TrafficStrategy <|.. WalkStrategy
+TrafficStrategy <|.. CarStrategy
+Context <.. TrafficStrategy
+@enduml

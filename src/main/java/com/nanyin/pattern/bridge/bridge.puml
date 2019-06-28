@@ -1,0 +1,38 @@
+@startuml
+
+abstract class Shape{
++ color:Color
++ {abstract}buildShape():void
+}
+
+interface Color {
++ paint():void
+}
+
+class ColorBlue{
++ paint():void
+}
+
+class ColorRed{
++ paint():void
+}
+
+class ShapeCircle{
+ShapeCircle()
+buildShape():void
+}
+
+class ShapeSquare{
+ShapeSquare()
+buildShape():void
+}
+
+Shape <|--ShapeSquare
+Shape <|-- ShapeCircle
+Color <|.. ColorBlue
+Color <|.. ColorRed
+Color "1" o-- "1" Shape:has
+
+App --> ShapeCircle
+App --> ColorRed
+@enduml

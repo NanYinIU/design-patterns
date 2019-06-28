@@ -1,0 +1,25 @@
+@startuml
+interface State{
++ open():void
++ close():void
+}
+Class NormalState{
++ open():void
++ close():void
+}
+Class ErrorState{
++ open():void
++ close():void
+}
+Class Context{
+- state:State
+# Context(State)
++ requestToOpen():void
++ requestToClose():void
++ changeStageTo(State):void
+}
+App --> Context
+State "1" <--o "1" Context
+State <|.. ErrorState
+State <|.. NormalState
+@enduml

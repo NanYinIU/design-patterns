@@ -1,0 +1,24 @@
+@startuml
+
+abstract class HttpServletTemplate{
+# doGet():void
+# doPost():void
++ service(HttpRequestMethod):void
+}
+
+class GetClient{
+# doGet():void
+}
+
+class PostClient{
+# doGet():void
+# doPost():void
+}
+
+HttpServletTemplate <|--GetClient
+HttpServletTemplate <|--PostClient
+App --> GetClient
+note top of App: 客户端调用对应GetClient和PostClient的夫类的service方法
+App --> PostClient
+
+@enduml

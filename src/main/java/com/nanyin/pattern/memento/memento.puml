@@ -1,0 +1,28 @@
+@startuml
+enum GameState
+class Memento{
+- gameState:GameState
+Memento(GameState)
++ getState();
++ setState(GameState);
+}
+interface Game{
+    +storeGamePoint(Memento):void
+    +retrieveGamePoint():Memento
+}
+class ActionGame{
+- Memento memento
++ storeGamePoint(Memento):void
++ retrieveGamePoint():Memento
+}
+Class Player{
+- gameState:GameState
++ createMemento():Memento
++ retrieveMemento(Memento):void
+}
+
+Memento --o ActionGame
+Memento --> Player
+
+Game <|-- ActionGame
+@enduml

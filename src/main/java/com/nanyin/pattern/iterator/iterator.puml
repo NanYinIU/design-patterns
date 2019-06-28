@@ -1,0 +1,28 @@
+@startuml
+interface Iterator<E>{
+    + hasNext():boolean
+    + next():E
+}
+interface Task{
+ + add(int mark):void
+ + removeLast():void
+ + iterator():Iterator<E>
+}
+class MyTask{
+   # size:int
+   # taskTag:Object[]
+   + add(int mark):void
+   + removeLast():void
+   + iterator():Iterator<E>
+}
+class MyTaskItr{
+ - curr:int
+ + hasNext():boolean
+ + next():E
+}
+
+Task <|..MyTask
+Iterator <|.. MyTaskItr
+MyTask --> MyTaskItr
+Task --> Iterator
+@enduml

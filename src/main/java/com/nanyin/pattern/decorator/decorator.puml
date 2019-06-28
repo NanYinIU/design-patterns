@@ -1,0 +1,35 @@
+@startuml
+'抽象组件/抽象装饰类
+abstract class AbstractGirl{
++ dyeHair():void
++ {abstract} wearClothes():void
++ pack():void
+}
+'具体组件
+class NormalGirl{
++ dyeHair():void
++ wearClothes():void
++ pack():void
+}
+
+class FashionGirl{
++ abstractGirl:AbstractGirl
++ dyeHair():void
++ wearClothes():void
++ pack():void
+}
+
+class WorkGirl{
++ abstractGirl:AbstractGirl
++ wearClothes():void
+}
+
+AbstractGirl <|-- NormalGirl
+AbstractGirl <|-- FashionGirl
+AbstractGirl <|-- WorkGirl
+FashionGirl "1" *-- "1" AbstractGirl
+WorkGirl "1" *-- "1" AbstractGirl
+
+App --> NormalGirl
+
+@enduml

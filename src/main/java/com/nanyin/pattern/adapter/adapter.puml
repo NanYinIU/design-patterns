@@ -1,0 +1,26 @@
+@startuml
+class TwoLeggedPlug <<class>> {
++fastCharge():void
+}
+
+class ThreeLeggedPlug <<class>>{
++charge():void
+}
+
+class TwoLeggedPlugAdapter <<class>>{
++ twoLeggedPlug:TwoLeggedPlug
++ TwoLeggedPlugAdapter()
++ charge():void
+}
+
+class S9Plus <<class>>{
++ threeLeggedPlug:ThreeLeggedPlug
++ S9Plus(threeLeggedPlug)
++ charge():void
+}
+
+TwoLeggedPlugAdapter --|> ThreeLeggedPlug
+S9Plus --|> ThreeLeggedPlug
+TwoLeggedPlugAdapter --> TwoLeggedPlug
+App --> TwoLeggedPlugAdapter
+@enduml

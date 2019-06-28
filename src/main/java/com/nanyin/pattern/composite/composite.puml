@@ -1,0 +1,30 @@
+@startuml
+abstract class Component{
++ name:String
++ areaLevel:Integer
++ printName():void
++ printLevel():void
++ printAll():void
++ list:List<Component>
+}
+Component "1" --* "n" Component
+class Country{
++ printName():void
++ printLevel():void
+}
+class Province{
++ printName():void
++ printLevel():void
+}
+class City{
++ printName():void
++ printLevel():void
+}
+Component <|.. Country
+Component <|.. Province
+Component <|.. City
+
+Country <-- App
+Province <-- App
+City <-- App
+@enduml

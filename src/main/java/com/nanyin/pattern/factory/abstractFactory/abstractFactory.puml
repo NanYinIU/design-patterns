@@ -1,0 +1,53 @@
+@startuml
+interface Sole{
+    getMaterial() : void
+}
+interface Shoelace {
+    length() : void
+}
+interface ShoesFactory {
+    createSole() : Sole
+    createShoelace() : Shoelace
+}
+
+class NikeBrandSole {
+    getMaterial() : void
+}
+
+class LiNingBrandSole {
+    getMaterial() : void
+}
+
+class NikeBrandShoelace{
+    length() : void
+}
+class LiNingBrandShoelace{
+    length() : void
+}
+
+class NikeShoeFactory{
+    createSole() : Sole
+    createShoelace() : Shoelace
+}
+
+class LiNingShoeFactory{
+    createSole() : Sole
+    createShoelace() : Shoelace
+}
+
+Sole <|-- LiNingBrandSole
+Sole <|-- NikeBrandSole
+
+Shoelace <|-- LiNingBrandShoelace
+Shoelace <|-- NikeBrandShoelace
+
+NikeBrandSole <.. NikeShoeFactory
+NikeBrandShoelace <.. NikeShoeFactory
+
+LiNingBrandSole <.. LiNingShoeFactory
+LiNingBrandShoelace <.. LiNingShoeFactory
+
+ShoesFactory <|-- NikeShoeFactory
+ShoesFactory <|-- LiNingShoeFactory
+
+@enduml

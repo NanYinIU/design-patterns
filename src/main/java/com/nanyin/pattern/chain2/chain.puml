@@ -1,0 +1,44 @@
+@startuml
+abstract RequestHandler{
+    __public__
+    + handleRequest() : void
+    + RequestHandler() : void
+    __protected__
+    # printHandling() : void
+    __private__
+    - next : RequestHandler
+}
+
+class Request{
+    __private__
+    - requestType : RequestType
+    - requestDescription : String
+    - handled : boolean
+}
+class OrcCommander{
+    __public__
+    + handleRequest()
+    + toString()
+}
+class OrcOfficer{
+    __public__
+    + handleRequest()
+    + toString()
+}
+class King{
+    + handle() : RequestHandler
+}
+' 继承需要使用泛化 <|-- 实现需要使用实现 （impl）<|.. 依赖一般是局部变量 函数操作 <..
+RequestHandler <|-- OrcCommander
+RequestHandler <|-- OrcOfficer
+RequestHandler "1" --> "1" RequestHandler : next
+RequestHandler <.. King
+Request <.. King
+@enduml
+
+' 泛化 <|-- （抽象实现）
+' 实现 <|.. （接口实现）
+' 依赖 <.. （临时性的关联。代码中一般指由局部变量、函数参数、返回值建立的对于其他对象的调用关系）如一个类引用另一个类的方法
+' 关联 【Customer "1"-->"1" Address : has】 用于表示一类对象与另一类对象之间有联系，如汽车和轮胎、师傅和徒弟、班级和学生等等
+' 聚合 o--  表示has-a的关系，是一种不稳定的包含关系。较强于一般关联,有整体与局部的关系,并且没有了整体,局部也可单独存在
+' 组合 *--表示contains-a的关系，是一种强烈的包含关系。组合类负责被组合类的生命周期。是一种更强的聚合关系。部分不能脱离整体存在。如公司和部门的关系

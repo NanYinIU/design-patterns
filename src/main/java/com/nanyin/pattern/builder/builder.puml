@@ -1,0 +1,28 @@
+@startuml
+class Characters <<class>>{
+    __private__
+    -  name : String
+    -  age : int
+    -  sex : String
+    -  skill : String
+    - weapon : String
+    __public__
+    + Characters(CharacterBuilder builder)
+    + showCharacterBoard() : void
+}
+class CharacterBuilder <<class>>{
+    __private__
+    -  name : String
+    -  age : int
+    -  sex : String
+    -  skill : String
+    - weapon : String
+   __public__
+   + buildBasicAttributes : CharacterBuilder
+   + buildSkill :  CharacterBuilder
+   + billdWeapon : CharacterBuilder
+   + build : Characters
+}
+
+CharacterBuilder ..> Characters
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+abstract class BathRoom{
+    + {abstract} enterBathroom(Person person):BathRoom
+}
+class MaleBathRoom {
++ enterBathroom(Person person):BathRoom
+}
+class FemaleBathRoom {
++ enterBathroom(Person person):BathRoom
+}
+class BathRoomProxy {
++ bathRoom:BathRoom
++ BathRoomProxy(bathRoom)
++ enterBathroom(Person person):BathRoom
+}
+class Person{
+- name:String
+- sex:SexEnum
+- hasSkinDisease:Integer;
++ Person(name,sex,hasSkinDisease);
+}
+enum SexEnum{
++ MALE
++ FEMALE
+}
+
+BathRoom <|-- MaleBathRoom
+BathRoom <|-- FemaleBathRoom
+BathRoom <|-- BathRoomProxy
+
+BathRoomProxy <-- MaleBathRoom
+BathRoomProxy <-- FemaleBathRoom
+
+BathRoom <-- Person
+
+Person *-- SexEnum
+@enduml

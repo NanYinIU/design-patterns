@@ -1,0 +1,31 @@
+@startuml
+abstract class Weather{
+    # weatherState:WeatherState
+    - observerList:List<Observer>
+    + addObserver(Observer):Weather
+    + removeObserver(Observer):void
+    + notifyObserver():void
+}
+
+class BeijingWeather{
+BeijingWeather(WeatherState)
++ changeState(WeatherState):void
+}
+
+interface Observer{
+    update(WeatherState weatherState):void
+}
+
+enum WeatherState{
+}
+class WeatherObserverA
+class WeatherObserverB
+
+WeatherState "1" <-- "1" Observer
+Observer <|.. WeatherObserverA
+Observer <|.. WeatherObserverB
+Weather <|-- BeijingWeather
+Observer "1" <-- "n" Weather
+
+'App --> Weather
+@enduml

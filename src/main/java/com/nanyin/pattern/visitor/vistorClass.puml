@@ -1,0 +1,48 @@
+@startuml
+interface Visitor{
++ visit(OperateNodeA):void
++ visit(OperateNodeB):void
+}
+class VisitorA{
++ visit(OperateNodeA):void
++ visit(OperateNodeB):void
+}
+class VisitorB{
++ visit(OperateNodeA):void
++ visit(OperateNodeB):void
+}
+abstract class OperateNode{
++ {abstract} accept(Visitor):void
+}
+class OperateNodeA{
+- workDate:int
++ accept(Visitor):void
++ attendance():int
++ performance():double
+}
+
+class OperateNodeB{
+- workDate:int
++ accept(Visitor):void
++ attendance():int
++ performance():double
+}
+
+class OperateStructure{
+- list:List<OperateNode>
++ add(OperateNode):void
++ action(Visitor):void
+}
+
+Visitor<|..VisitorA
+Visitor<|..VisitorB
+OperateNode <|-- OperateNodeA
+OperateNode <|-- OperateNodeB
+OperateNode ..> Visitor
+'Visitor ..> OperateNodeA
+'Visitor ..> OperateNodeB
+OperateStructure "1" --> "n" OperateNode
+App ..> OperateStructure
+App ..> Visitor
+
+@enduml

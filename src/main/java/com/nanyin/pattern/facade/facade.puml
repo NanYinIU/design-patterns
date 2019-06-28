@@ -1,0 +1,32 @@
+@startuml
+interface Services{
++ start():void
++ stop():void
++ restart():void
+}
+class MysqlService{
++ start():void
++ stop():void
++ restart():void
+}
+class ApacheService{
++ start():void
++ stop():void
++ restart():void
+}
+
+Services <|.. MysqlService
+Services <|.. ApacheService
+
+class Facade{
++ List<Services> services
++ Facade()
++ addService():void
++ start():void
++ stop():void
++ restart():void
+}
+
+Facade "1"-->"n" Services :has
+App --> Facade
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+interface Shoes <<interface>>{
+    getColor() : void
+}
+class redShoes <<class>>{
+    getColor : void
+}
+
+class WhiteShoes <<class>>{
+    getColor : void
+}
+class OtherShoes <<class>>{
+    getColor : void
+}
+class ShoesFactory <<class>>{
+    getShoes : Shoes
+}
+
+Shoes <|.. redShoes
+Shoes <|.. WhiteShoes
+Shoes <|.. OtherShoes
+redShoes <.. ShoesFactory
+WhiteShoes <.. ShoesFactory
+OtherShoes <.. ShoesFactory
+@enduml

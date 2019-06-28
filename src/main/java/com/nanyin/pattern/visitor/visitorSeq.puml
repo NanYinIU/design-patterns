@@ -1,0 +1,11 @@
+@startuml
+App --> OperateStructure : new新建
+OperateStructure --> OperateNodeA:调用OperateNode中的accept(Visitor)方法
+OperateStructure --> OperateNodeB:调用OperateNode中的accept(Visitor)方法
+OperateNodeA --> VisitorA:调用Visitor中的visit(OperateNodeA)方法
+VisitorA -> OperateNodeA:调用OperateNode中的attendance()方法,返回结果
+OperateNodeB --> VisitorA:调用Visitor中的visit(OperateNodeB)方法
+OperateNodeA ->OperateStructure
+OperateStructure -> App
+
+@enduml
