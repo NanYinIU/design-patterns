@@ -1,0 +1,32 @@
+@startuml
+interface Command{
+excute():void
+}
+class AttackCommand{
+- soldier:Soldier
++ excute():void
+}
+'class RetreatCommand{
+'- soldier:Soldier
+'+ excute():void
+'}
+class Soldier{
+attack():void
+retreat():void
+}
+class King{
+- command:Command
++ invoke(Command):void
++ action():void
+}
+
+Command <|.. AttackCommand
+Soldier <-- AttackCommand
+
+King --> Command
+
+App --> King
+App --> Soldier
+
+
+@enduml
