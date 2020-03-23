@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * 适配器模式
+ *
  */
 public class App {
     @Test
