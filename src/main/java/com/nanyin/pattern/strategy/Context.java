@@ -1,5 +1,10 @@
 package com.nanyin.pattern.strategy;
-
+/**
+ * @class Context.java
+ * @author nanyin
+ * @description 持有策略的环境类
+ * @create 08:40 2020-04-03
+ */
 public class Context {
     private TrafficStrategy trafficStrategy;
 
