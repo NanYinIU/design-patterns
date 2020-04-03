@@ -9,13 +9,14 @@ import com.nanyin.pattern.chain2.Request;
  * @create 09:32 2020-03-31
  */
 public class Client {
+    // 添加请求
+    private LeaveRequest request = new LeaveRequest("zhangsan","0919",true);
+    private LeaveRequest request2 = new LeaveRequest("lisi","0929",false);
+    // 设置责任链
+    private LeaveHandler manageHandler = new ManagerHandler(new LeaderHandler(null));
     public static void main(String[] args) {
-        // 添加请求
-        LeaveRequest request = new LeaveRequest("zhangsan","0919",true);
-        LeaveRequest request2 = new LeaveRequest("lisi","0929",false);
-        // 设置责任链
-        LeaveHandler manageHandler = new ManagerHandler(new LeaderHandler(null));
+        Client client = new Client();
         // 责任链处理
-        manageHandler.handle(request).handle(request2);
+        client.manageHandler.handle(client.request).handle(client.request2);
     }
 }
