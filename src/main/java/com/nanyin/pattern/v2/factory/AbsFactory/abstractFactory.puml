@@ -1,0 +1,58 @@
+@startuml
+interface Weapon <<interface>>{
+    attack() : void
+}
+
+class Axe <<class>>{
+    attack() : void
+}
+
+class EnchantedAxe <<class>>{
+ attack() : void
+}
+
+interface Armor <<interface>>{
+    defence(): void
+}
+
+class IronArmor <<class>>{
+    defence(): void
+}
+
+class SteelArmor <<class>>{
+    defence(): void
+}
+
+interface WarFactory <<interface>>{
+    buildWeapon():Weapon
+    buildArmor():Armor
+}
+
+class LowerFactory <<class>>{
+    buildWeapon():Weapon
+    buildArmor():Armor
+}
+class SeniorFactory <<class>>{
+    buildWeapon():Weapon
+    buildArmor():Armor
+}
+
+Weapon <|.. Axe
+Axe <|-- EnchantedAxe
+
+Armor <|-- IronArmor
+Armor <|-- SteelArmor
+
+LowerFactory <|-- WarFactory
+SeniorFactory <|-- WarFactory
+
+Axe <.. LowerFactory
+IronArmor <.. LowerFactory
+
+EnchantedAxe <.. SeniorFactory
+SteelArmor <.. SeniorFactory
+
+
+
+
+@enduml

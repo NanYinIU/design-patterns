@@ -1,0 +1,27 @@
+@startuml
+interface Weapon <<interface>>{
+    attack() : void
+}
+
+class Axe <<class>>{
+    attack() : void
+}
+
+class EnchantedAxe <<class>>{
+ attack() : void
+}
+
+interface WeaponFactory <<interface>>{
+    build() : Weapon
+}
+
+class AxeFactory <<class>>{
+    build() : Weapon
+}
+
+Weapon <|.. Axe
+Axe <|-- EnchantedAxe
+WeaponFactory <|.. AxeFactory
+Axe <.. AxeFactory
+
+@enduml

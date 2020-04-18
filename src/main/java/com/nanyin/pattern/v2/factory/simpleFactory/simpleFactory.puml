@@ -1,0 +1,21 @@
+@startuml
+interface Weapon <<interface>>{
+    attack() : void
+}
+class Sword <<class>>{
+    attack() : void
+}
+
+class Axe <<class>>{
+    attack() : void
+}
+
+class WeaponFactory <<class>>{
+    build : Weapon
+}
+
+Weapon <|.. Sword
+Weapon <|.. Axe
+Sword <.. WeaponFactory
+Axe <.. WeaponFactory
+@enduml

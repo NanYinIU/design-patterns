@@ -2,7 +2,7 @@ package com.nanyin.pattern.builder;
 
 import org.junit.jupiter.api.Test;
 
-public class App {
+public class Client {
     @Test
     public void testBuildCharacter(){
         Characters characters = new CharacterBuilder()

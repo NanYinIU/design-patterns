@@ -23,6 +23,6 @@ public class Characters {
     }
 
     public void showCharacterBoard(){
-        System.out.println("人物 ： " + this.name + " 年龄 ：" + this.age + " 性别：" + this.sex + " 技能：" +this.skill + " 武器：" + this.weapon);
+        System.out.println(" 人物 ： " + this.name + "\n 年龄 ：" + this.age + "\n 性别：" + this.sex + "\n 技能：" +this.skill + "\n 武器：" + this.weapon);
     }
 }
